@@ -1,0 +1,565 @@
+:root {
+    --primary-blue: #5b5dfa;
+    --hero-grad: linear-gradient(135deg, #5b5dfa, #7d80ff);
+    --bg-color: #f8faff;
+}
+
+body {
+    background-color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+     display: flex; 
+     justify-content: center;
+}
+
+.mobile-frame {
+    width: 375px;
+    background: var(--bg-color);
+    min-height: 100vh;
+    padding: 20px;
+    padding-bottom: 90px;
+    position: relative;
+}
+
+.top-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 20px;
+     color: #333;
+}
+
+/* ========================= */
+/* DARK MODE */
+/* ========================= */
+
+body.dark-mode {
+    background-color: #121212;
+}
+
+body.dark-mode .mobile-frame {
+    background: #1e1e2f;
+}
+
+body.dark-mode .top-header,
+body.dark-mode .section-title h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .progress-card,
+body.dark-mode .planner-card,
+body.dark-mode .task-item,
+body.dark-mode .bottom-nav {
+    background: #2a2a40;
+    color: white;
+}
+
+body.dark-mode .planner-card input {
+    background: #33334d;
+    border: 1px solid #444;
+    color: white;
+}
+
+body.dark-mode .circle-progress::before {
+    background: #2a2a40;
+}
+
+body.dark-mode .progress-bar-container {
+    background: #444;
+}
+
+body.dark-mode .nav-item {
+    color: #888;
+}
+
+body.dark-mode .nav-item.active {
+    color: #fff;
+}
+
+
+
+.logo { display: flex; 
+    align-items: center;
+     gap: 8px;
+      font-weight: bold;
+       font-size: 1.1rem; 
+    
+    }
+
+.logo-icon {
+     background: #5b5dfa;
+      color: white;
+       padding: 5px;
+        border-radius: 6px; }
+
+.hero-card {
+    background: var(--hero-grad);
+     border-radius: 20px;
+    padding: 25px;
+     color: white; 
+     position: relative; 
+     overflow: hidden;
+    box-shadow: 0 10px 20px rgba(91, 93, 250, 0.2);
+     margin-bottom: 25px;
+}
+
+.hero-card h1 { 
+    font-size: 1.8rem;
+     margin: 0;
+      line-height: 1.2;
+
+     }
+.hero-card p { 
+    font-style: italic; 
+    font-size: 0.9rem;
+     margin: 15px 0; 
+     opacity: 0.9; 
+    
+    }
+
+.get-started-btn {
+    background: white; 
+    color: var(--primary-blue); 
+    border: none;
+    padding: 10px 20px;
+     border-radius: 8px;
+      font-weight: bold; 
+      cursor: pointer;
+}
+
+.graduation-cap-icon {
+    position: absolute; 
+    right: -10px;
+     bottom: -10px;
+    font-size: 5rem;
+     opacity: 0.2; 
+     transform: rotate(-15deg);
+}
+
+.section-title {
+    display: flex;
+     justify-content: space-between;
+      align-items: center;
+    margin-bottom: 15px; 
+    margin-top: 10px;
+}
+
+.section-title h2 {
+     font-size: 1.2rem;
+     color: #222;
+      margin: 0; 
+    }
+.highlight {
+     color: var(--primary-blue); 
+     font-weight: bold;
+     }
+
+.progress-card {
+    background: white;
+     border-radius: 15px;
+      padding: 20px;
+    display: flex; 
+    align-items: center;
+     gap: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+/* Circle CSS */
+.circle-progress {
+    width: 80px;
+     height: 80px; 
+     border-radius: 50%;
+    background: conic-gradient(var(--primary-blue) 0%, #eee 0%);
+    display: flex; 
+    align-items: center;
+     justify-content: center;
+    position: relative;
+}
+.circle-progress::before {
+    content: ""; 
+    position: absolute; 
+    width: 65px;
+     height: 65px;
+    background: white;
+     border-radius: 50%;
+}
+#circle-text { 
+    position: relative; 
+    font-weight: bold;
+     font-size: 1.1rem;
+     }
+
+.stats-data { 
+    flex-grow: 1;
+ }
+.stat-line {
+     display: flex;
+      align-items: center; 
+      gap: 8px; 
+      font-size: 0.9rem;
+       margin-bottom: 5px; 
+    }
+.dot {
+     width: 8px;
+     height: 8px;
+      border-radius: 50%;
+     }
+.completed { 
+    background: var(--primary-blue);
+ }
+.pending {
+     background: #ddd;
+     }
+
+.progress-bar-container { 
+    background: #eee;
+     height: 8px;
+      border-radius: 10px;
+       margin-top: 8px;
+     }
+.progress-fill {
+     background: var(--primary-blue);
+      height: 100%; 
+      border-radius: 10px;
+       width: 0%;
+        transition: 0.5s; 
+    }
+
+.planner-card {
+    background: white;
+     border-radius: 15px;
+      padding: 15px;
+    margin-bottom: 15px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.planner-card input {
+    width: 100%;
+     padding: 12px;
+      border: 1px solid #eee;
+    border-radius: 8px;
+     margin-bottom: 10px; 
+     box-sizing: border-box;
+}
+
+.input-row { 
+    display: flex;
+     gap: 10px;
+     }
+#add-btn {
+     background: #5b5dfa;
+      color: white; 
+      border: none; 
+      padding: 0 20px; 
+      border-radius: 8px;
+       cursor: pointer; }
+
+.task-item {
+    background: white; 
+    padding: 15px;
+     border-radius: 12px;
+    display: flex; 
+    justify-content: space-between;
+     align-items: center;
+    margin-bottom: 10px;
+}
+
+.task-item.checked span { 
+    text-decoration: line-through;
+     color: #aaa; 
+    }
+
+.tool-card {
+    display: flex; 
+    align-items: center;
+     gap: 15px;
+    padding: 15px;
+     border-radius: 15px;
+      margin-bottom: 10px;
+}
+.purple { 
+    background: #343576;
+ }
+.light-blue { 
+    background: #3c3d5e;
+ }
+ .grey-bg{
+     background: #8586d2;
+ }
+.tool-icon {
+     background: white;
+      padding: 12px;
+       border-radius: 10px; 
+       color: var(--primary-blue); 
+    }
+
+h3 {
+    color: white;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 417px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 15px;
+    margin-left: -22px;
+    padding-bottom: 25px;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+    z-index: 1000;
+    
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #aaa;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-item.active {
+    color: #000; /* Home-ka madow ayuu u muuqdaa sawirkaaga */
+}
+
+.nav-item i {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.nav-item span {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.fab-btn {
+    background: #5b5dfa;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -50px;
+    border: 5px solid var(--bg-color);
+    box-shadow: 0 4px 15px rgba(91, 93, 250, 0.4);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/* planner page */
+
+
+
+body {
+    background-color: #f2f2f2; /* Midabka ka dambeeya page-ka */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.challenge-container {
+    background-color: #5b5dfa; 
+    width: 345px;
+    padding: 35px;
+    margin-left: -20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+
+  /* CSS dheeraad ah oo loogu talagalay quruxda grid-ka */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            padding: 10px 0;
+          
+        }
+        .circle {
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 12px;
+            color: #d81b60;
+            border: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .circle.active {
+           
+            color: white;
+            border-color: #d81b60;
+            box-shadow: 0 4px 8px rgba(216, 27, 96, 0.3);
+              background-color: #d7a7d9; /* Midabka casaan madow ah */
+            transform: scale(0.9);
+        }
+
+
+footer {
+    margin-top: 20px;
+    background-color: #fffcf9;
+    padding: 20px 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.tape {
+    background-color: #b03060;
+    color: white;
+    width: 120px;
+    margin: -35px auto 10px;
+    padding: 5px;
+    font-size: 12px;
+    transform: rotate(-2deg);
+}
+
+.quote {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.heart-icon {
+     position: absolute;
+     left: -20px; 
+     bottom: 40px;
+      color: #ff80ab; 
+      font-size: 30px;
+     }
+.flower-icon { position: absolute;
+     right: -10px;
+      bottom: -10px;
+       color: #d81b60;
+        font-size: 30px;
+     }
+
+
+
+
+
+        /* register page */
+
+.register-container {
+  background: #1a1a2e; 
+  padding: 20px;
+  border-radius: 20px;
+  width: 375px;
+  margin: 40px  ;
+  margin-right: 65px;
+
+  /* Kani waa xariiqda madow ee hooska leh */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  padding-bottom: 5rem;
+  
+}
+
+/* Tab-yada Login iyo Sign Up ee is-garab yaalla */
+.form-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #333;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-btn.active {
+  color: #5b5dfa; /* Midabka casaanka ah */
+  border-bottom: 2px solid #5b5dfa;
+}
+
+.register-title {
+  text-align: left;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+.register-group {
+  margin-bottom: 20px;
+}
+
+/* Input-yada wareegsan ee sawirka cml */
+.register-input {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: 25px; 
+  border: 1px solid #5b5dfa; /* Xariiqda casaanka ah */
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+.register-input::placeholder {
+  color: #666;
+}
+
+/* Badhanka weyn ee casaanka ah */
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  background: #5b5dfa;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #5b5dfa;
+  transform: translateY(-2px);
+}
+
+/* Qoraalka hoose (Switch link) */
+.switch-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.link-color {
+  color: #e94560;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* Si loo qariyo form-ka aan la rabin */ 
+.hidden {
+  display: none;
+}

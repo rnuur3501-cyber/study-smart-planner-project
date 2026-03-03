@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart study planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+</head>
+<body>
+
+    <div class="challenge-container">
+        <header>
+            <div class="header-lines"></div>
+            <h1>30 DAYS CHALLENGE</h1>
+            <div class="header-lines"></div>
+        </header>
+
+        <div class="grid-container" id="grid"></div>
+
+        <footer>
+            <div class="tape">
+                <span>♥♥♥♥</span>
+            </div>
+            <p class="quote">BE THE BEST VERSION OF YOURSELF TODAY!</p>
+            
+            <div class="heart-icon">❤</div>
+            <div class="flower-icon">✿</div>
+        </footer>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="planner.html" class="nav-item active">
+            <i class="fas fa-tasks"></i>
+            <span>Planner</span>
+        </a>
+           <div class="fab-btn" onclick="window.location.href='index.html'">
+    <i class="fas fa-plus"></i>
+</div>
+        <a href="settings.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('grid');
+
+            // 1. Function-ka abuurista Grid-ka (30 Maalmood)
+            function createGrid() {
+                grid.innerHTML = ''; // Nadiifi grid-ka
+
+                for (let i = 1; i <= 30; i++) {
+                    const circle = document.createElement('div');
+                    circle.classList.add('circle');
+                    circle.innerText = i; // Ku qor nambarka maalinta
+                    
+                    // Hubi haddii hore loo calaamadeeyay (LocalStorage)
+                    const isDone = localStorage.getItem(`day_challenge_${i}`) === 'true';
+                    if (isDone) {
+                        circle.classList.add('active');
+                    }
+
+                    // --------------------------------------------------
+                    // CLICK EVENT: CALAAMADAYN & SINGLE DELETE
+                    // --------------------------------------------------
+                    circle.addEventListener('click', () => {
+                        const isActive = circle.classList.contains('active');
+
+                        if (isActive) {
+                            // HADDII AY ACTIVE TAHAY: User-ka wuxuu rabaa inuu TIRTIRTO (Single Delete)
+                            const confirmDelete = confirm(`Ma hubtaa inaad tirtirto Day ${i}?`);
+                            if (confirmDelete) {
+                                circle.classList.remove('active');
+                                localStorage.removeItem(`day_challenge_${i}`); // Ka saar kaydka
+                            }
+                        } else {
+                            // HADDII AY CAD TAHAY: User-ka wuxuu rabaa inuu CALAAMADEEYO (Check)
+                            circle.classList.add('active');
+                            localStorage.setItem(`day_challenge_${i}`, 'true'); // Ku dar kaydka
+                        }
+                    });
+
+                    grid.appendChild(circle);
+                }
+            }
+
+            // Bilow Grid-ka
+            createGrid();
+        });
+    </script>
+</body>
+</html>

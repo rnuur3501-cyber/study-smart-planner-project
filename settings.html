@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart study planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+
+<div class="register-container">
+    <div class="form-tabs">
+        <button id="showLogin" class="tab-btn active">Log In</button>
+        <button id="showSignup" class="tab-btn">Sign Up</button>
+    </div>
+
+    <form id="loginForm" class="register-form">
+        <h2 class="register-title">Log In</h2>
+        <div class="register-group">
+            <input type="email" id="loginEmail" class="register-input" placeholder="Email Address">
+        </div>
+        <div class="register-group">
+            <input type="password" id="loginPass" class="register-input" placeholder="Password">
+        </div>
+        <button type="submit" class="register-btn">Log in</button>
+    </form>
+
+    <form id="registerForm" class="register-form hidden">
+        <h2 class="register-title">Sign Up</h2>
+        <div class="register-group">
+            <input type="text" id="fullname" class="register-input" placeholder="Full Name">
+        </div>
+        <div class="register-group">
+            <input type="text" id="mobile" class="register-input" placeholder="Mobile Number">
+        </div>
+        <div class="register-group">
+            <input type="email" id="email" class="register-input" placeholder="Email Address">
+        </div>
+        <div class="register-group">
+            <input type="number" id="age" class="register-input" placeholder="Age">
+        </div>
+        <div class="register-group">
+            <input type="text" id="address" class="register-input" placeholder="Address">
+        </div>
+        <div class="register-group">
+            <input type="password" id="password" class="register-input" placeholder="Password">
+        </div>
+        <div class="register-group">
+            <input type="password" id="confirmPassword" class="register-input" placeholder="Confirm Password">
+        </div>
+        <button type="submit" class="register-btn">Sign up</button>
+    </form>
+
+    <div id="register-message" class="register-message"></div>
+</div>
+
+
+ <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="planner.html" class="nav-item active">
+            <i class="fas fa-tasks"></i>
+            <span>Planner</span>
+        </a>
+        
+        <a href="settings.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </a>
+    </nav>
+
+
+      <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const registerMessage = document.getElementById('register-message');
+
+    // ============ SIGN UP ============
+    registerForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const fullname = document.getElementById('fullname').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const age = document.getElementById('age').value.trim();
+        const address = document.getElementById('address').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (!fullname || !mobile || !email || !age || !address || !password || !confirmPassword) {
+            showMessage('Please fill all fields!', 'red');
+            returun;
+        }
+
+        if (!validateEmail(email)) {
+            showMessage('Invalid email address!', 'red');
+            return;
+        }
+
+        if (password.length < 6) {
+            showMessage('Password must be at least 6 characters!', 'red');
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            showMessage('Passwords do not match!', 'red');
+            return;
+        }
+
+        const userData = {
+            fullname,
+            mobile,
+            email,
+            age,
+            address,
+            password
+        };
+
+        localStorage.setItem('userAccount', JSON.stringify(userData));
+
+        showMessage('Registered successfully ✅', '#00ff00');
+        registerForm.reset();
+    });
+
+    // ============ LOGIN ============
+    loginForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const loginEmail = document.getElementById('loginEmail').value.trim();
+        const loginPass = document.getElementById('loginPass').value.trim();
+
+        const savedUser = JSON.parse(localStorage.getItem('userAccount'));
+
+        if (!savedUser) {
+            showMessage('No account found. Please Sign Up first!', 'red');
+            return;
+        }
+
+        if (loginEmail === savedUser.email && loginPass === savedUser.password) {
+            showMessage('You logged in your account successfully ✅', '#00ff00');
+            loginForm.reset();
+        } else {
+            showMessage('Email or Password is incorrect!', 'red');
+        }
+    });
+
+    // ============ FUNCTIONS ============
+    function showMessage(msg, color) {
+        registerMessage.textContent = msg;
+        registerMessage.style.color = color;
+    }
+
+    function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // ============ TAB SWITCH ============
+    document.getElementById('showLogin').onclick = function () {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        this.classList.add('active');
+        document.getElementById('showSignup').classList.remove('active');
+    };
+
+    document.getElementById('showSignup').onclick = function () {
+        registerForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+        this.classList.add('active');
+        document.getElementById('showLogin').classList.remove('active');
+    };
+
+});
+</script>
+
+  </body>
+</html>

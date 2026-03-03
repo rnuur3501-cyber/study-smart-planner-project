@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smart study planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<heade>
+<div class="mobile-frame">
+    <header class="top-header">
+        <div class="logo">
+            <div class="logo-icon"><i class="fas fa-book-open"></i></div>
+            <span>StudyFlow</span>
+        </div>
+        <i class="fas fa-moon" id="theme-toggle"></i>
+    </header>
+
+    <div class="hero-card">
+        <h1>Master Your <br> Learning Journey</h1>
+        <p>"The secret of getting ahead is getting started."</p>
+        <button class="get-started-btn">Get Started <i class="fas fa-arrow-right"></i></button>
+        <div class="graduation-cap-icon"><i class="fas fa-graduation-cap"></i></div>
+    </div>
+
+    <div class="section-title">
+        <h2>Daily Progress</h2>
+        <span class="highlight" id="top-percentage">0% Complete</span>
+    </div>
+
+    <div class="progress-card">
+        <div class="chart-container">
+            <div class="circle-progress" id="circle-ui">
+                <span id="circle-text">0%</span>
+            </div>
+        </div>
+        <div class="stats-data">
+            <div class="stat-line"><span class="dot completed"></span> Completed <strong id="done-num">0</strong></div>
+            <div class="stat-line"><span class="dot pending"></span> Pending <strong id="pending-num">0</strong></div>
+            <div class="progress-bar-container">
+                <div class="progress-fill" id="flat-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">
+        <h2>Study Planner</h2>
+        <span class="view-all">View All</span>
+    </div>
+
+    <div class="planner-card">
+        <input type="text" id="task-input" placeholder="Task Name (e.g. Physics Review)">
+        <div class="input-row">
+            <input type="datetime-local" id="date-input">
+            <button id="add-btn">Add +</button>
+        </div>
+    </div>
+
+    <div id="task-list-container"></div>
+
+    <div class="section-title"><h2>Smart Tools</h2></div>
+
+    <div class="tool-card purple">
+        <div class="tool-icon"><i class="fas fa-stopwatch"></i></div>
+        <div class="tool-info">
+            <h3>Pomodoro Timer</h3>
+            <p id="timer-display">60:00</p>
+            <div class="tool-actions">
+                <button onclick="toggleTimer()" id="timer-btn">Start</button>
+                <button onclick="resetTimer()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tool-card light-blue">
+        <div class="tool-icon"><i class="fas fa-bolt"></i></div>
+        <div class="tool-info">
+            <h3>Smart Scheduling</h3>
+            <p id="schedule-status">AI-optimized plans</p>
+            <button onclick="smartSort()">Optimize</button>
+        </div>
+    </div>
+
+    <div class="tool-card grey-bg">
+        <div class="tool-icon"><i class="fas fa-chart-line"></i></div>
+        <div class="tool-info">
+            <h3>Progress Tracking</h3>
+            <p id="track-summary">Start your tasks!</p>
+        </div>
+    </div>
+
+   <div id="home-section" class="page-content">
+    </div>
+
+<div id="planner-section" class="page-content" style="display: none;">
+    </div>
+
+ <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="planner.html" class="nav-item active">
+            <i class="fas fa-tasks"></i>
+            <span>Planner</span>
+        </a>
+        <div class="fab-btn" onclick="window.location.href='index.html'">
+    <i class="fas fa-plus"></i>
+</div>
+       
+        <a href="settings.html" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+        </a>
+    </nav>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
