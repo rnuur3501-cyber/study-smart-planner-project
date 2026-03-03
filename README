@@ -1,0 +1,53 @@
+ Smart Study Planner
+
+Overview
+
+StudyFlow is a web app that helps students organize their study tasks, track progress, and improve productivity. It includes a planner, Pomodoro timer, daily progress tracker, and a 30-day challenge for consistent learning.
+
+Features
+
+Task Planner: Add, complete, and delete tasks.
+
+Daily Progress: Shows completed vs pending tasks with visual charts.
+
+Pomodoro Timer: Start, pause, and reset study sessions.
+
+30-Day Challenge: Track daily study habits with interactive grid.
+
+Dark/Light Mode: Switch theme according to preference.
+
+User Login/Register: Save and manage account data locally.
+
+
+Technologies Used
+
+HTML
+
+CSS (Flexbox & Grid)
+
+JavaScript (DOM manipulation, events, localStorage)
+
+Font Awesome icons
+
+
+How to Run
+
+1. Open the project folder.
+
+
+2. Open index.html in a web browser.
+
+
+3. Use the planner and other tools to manage tasks and track progress.
+
+
+
+Future Improvements
+
+Add backend for multiple users.
+
+Customizable Pomodoro timer.
+
+Notifications and reminders.
+
+Analytics dashboard for long-term progress.
